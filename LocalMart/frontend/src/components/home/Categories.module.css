@@ -1,0 +1,51 @@
+/* src/components/home/Categories.module.css */
+.section {
+  padding: 4rem 1rem;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+}
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+}
+.active {
+  background: linear-gradient(to bottom right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+  transform: scale(1.05);
+}
+.emoji {
+  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+.title {
+  font-weight: 600;
+}

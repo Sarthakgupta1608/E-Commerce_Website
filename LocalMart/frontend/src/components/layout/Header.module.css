@@ -1,0 +1,264 @@
+/* src/components/layout/Header.module.css */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.5s ease;
+  background-color: transparent;
+}
+
+.scrolled {
+  background-color: var(--bg-secondary);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem; /* 80px */
+}
+
+/* Logo */
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.logoIcon {
+  background: linear-gradient(to bottom right, var(--brand-gradient-start), var(--brand-gradient-end));
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+.logoGroup:hover .logoIcon {
+  transform: rotate(12deg);
+}
+.logoSvg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--text-on-brand);
+}
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Desktop Menu */
+.desktopMenu {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktopMenu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+.menuLink {
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.menuLink:hover {
+  color: var(--brand-primary);
+}
+.menuLinkUnderline {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--brand-primary);
+  transition: width 0.3s ease;
+}
+.menuLink:hover .menuLinkUnderline {
+  width: 100%;
+}
+
+/* Desktop Actions */
+.desktopActions {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktopActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.iconButton {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+.iconButton:hover {
+  background-color: var(--bg-tertiary);
+}
+.cartButton {
+  position: relative;
+}
+.cartBadge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: var(--brand-primary);
+  color: var(--text-on-brand);
+  font-size: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryButton,
+.signInButton {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+.primaryButton {
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+}
+.primaryButton:hover {
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+  transform: scale(1.05);
+}
+.signInButton {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+}
+.signInButton:hover {
+  background-color: var(--bg-secondary-hover);
+}
+
+/* Mobile Menu */
+.mobileMenuButton {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+.mobileMenuButton:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.mobileMenu {
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+  max-height: 0;
+  background-color: var(--bg-secondary);
+  backdrop-filter: blur(10px);
+}
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+.mobileMenuOpen {
+  max-height: 24rem; /* 384px */
+}
+.mobileMenuContent {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mobileLink {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.mobileLink:hover {
+  color: var(--brand-primary);
+}
+.primaryButtonFull,
+.signInButtonFull {
+  width: 100%;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+.primaryButtonFull {
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+}
+.signInButtonFull {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+}
+
+.themeToggle {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+.themeToggle:hover {
+  background: var(--border-primary);
+  color: var(--text-primary);
+}
+
+/* Add this to the end of Header.module.css */
+.logoutButton {
+  color: #ef4444; /* red-500 */
+}
+.logoutButton:hover {
+  background-color: #fee2e2; /* red-100 */
+  color: #b91c1c; /* red-700 */
+}
+[data-theme="dark"] .logoutButton {
+  color: #f87171; /* red-400 */
+}
+[data-theme="dark"] .logoutButton:hover {
+  background-color: #3f2222; /* dark red */
+  color: #fca5a5; /* red-300 */
+}

@@ -1,0 +1,14 @@
+/* src/components/products/ProductGrid.module.css */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.noProducts {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  grid-column: 1 / -1; /* Span full grid */
+  text-align: center;
+  padding: 4rem 0;
+}

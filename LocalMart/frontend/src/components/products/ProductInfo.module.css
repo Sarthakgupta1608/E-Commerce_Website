@@ -1,0 +1,143 @@
+/* src/components/products/ProductInfo.module.css */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.seller {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  margin-bottom: 0.75rem;
+}
+
+.name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+.starFilled {
+  color: var(--star-filled);
+  fill: var(--star-filled);
+}
+.starEmpty {
+  color: var(--border-primary);
+}
+.ratingCount {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-top: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-primary);
+  border-radius: 0.75rem;
+  background-color: var(--bg-secondary);
+  padding: 0.25rem;
+  align-self: flex-start;
+}
+
+.quantityButton {
+  background-color: var(--bg-tertiary);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.quantityButton:hover {
+  background-color: var(--border-secondary);
+  color: var(--text-primary);
+}
+.quantityButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantityValue {
+  padding: 0 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  min-width: 50px;
+  text-align: center;
+}
+
+.addToCartButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+}
+.addToCartButton:hover {
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+  transform: scale(1.03);
+}
+
+/* ... keep all existing styles ... */
+
+.addToCartButton.success {
+  background: #16a34a; /* green-600 */
+  cursor: default;
+}
+
+.errorMessage {
+  color: #b91c1c;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+[data-theme="dark"] .errorMessage {
+  color: #fca5a5;
+}

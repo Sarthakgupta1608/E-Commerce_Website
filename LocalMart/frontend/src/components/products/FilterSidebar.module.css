@@ -1,0 +1,128 @@
+/* src/components/products/FilterSidebar.module.css */
+.sidebar {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  align-self: flex-start; /* Keeps it from stretching */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-secondary);
+  padding-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.clearButton {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--brand-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.clearButton:hover {
+  text-decoration: underline;
+}
+
+.filterBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filterTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+}
+.checkboxLabel input[type="checkbox"] {
+  accent-color: var(--brand-primary);
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.priceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.priceSlider {
+  width: 100%;
+  accent-color: var(--brand-primary);
+}
+.priceValue {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.priceAmount {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ratingList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ratingButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ratingButton:hover, .ratingButton.active {
+  background-color: var(--bg-brand-secondary);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+.ratingButton.active {
+  box-shadow: 0 0 0 2px var(--brand-primary-hover);
+}
+.ratingButton span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.starFilled {
+  color: var(--star-filled);
+  fill: var(--star-filled);
+}
+.starEmpty {
+  color: var(--border-primary);
+}
+.ratingButton.active .starEmpty {
+  color: var(--brand-primary-hover);
+}

@@ -1,0 +1,42 @@
+/* src/components/dashboard/DashboardLayout.module.css */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  /* This is the base background for the content area */
+  background-color: var(--bg-primary); 
+}
+
+.mainContent {
+  flex-grow: 1;
+  /* THIS IS THE FIX: */
+  /* We add a left margin equal to the sidebar's width */
+  margin-left: 260px; 
+  padding: 2rem;
+}
+
+.contentContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- For smaller screens --- */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  
+  .mainContent {
+    /* On mobile, the sidebar is gone, so no margin */
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  /* We'll need to update the sidebar to be a top-bar or slide-out on mobile, 
+     but for now, this fixes the content overlap */
+  .sidebar {
+    /* This is in DashboardSidebar.module.css, but we'll override it here for now */
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}

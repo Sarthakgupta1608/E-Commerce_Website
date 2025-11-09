@@ -1,0 +1,101 @@
+/* src/pages/dashboard/SellerDashboardPage.module.css */
+.page {
+  animation: fadeIn 0.5s ease-out;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 2rem 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.statCard {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-secondary);
+}
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.statTitle {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.statIcon {
+  padding: 0.5rem;
+  border-radius: 99px;
+  color: var(--text-on-brand);
+}
+.green { background: #16a34a; }
+.blue { background: #2563eb; }
+.purple { background: #7c3aed; }
+.orange { background: #ea580c; }
+
+.statValue {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1rem 0 0.5rem 0;
+}
+.statChange {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.statChange[data-positive="true"] {
+  color: #16a34a;
+}
+.statChange[data-positive="false"] {
+  color: #dc2626;
+}
+
+.recentActivity {
+  margin-top: 3rem;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+.emptyState {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ... keep all existing styles ... */
+
+.errorMessage {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #dc2626;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+[data-theme="dark"] .errorMessage {
+  background-color: #3f2222;
+  color: #fca5a5;
+  border-color: #ef4444;
+}

@@ -1,0 +1,132 @@
+/* src/components/common/ProductCard.module.css */
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+}
+
+.imageWrapper {
+  background: linear-gradient(to bottom right, var(--bg-brand-secondary), var(--bg-brand-tertiary));
+  height: 12rem; /* 192px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.card:hover .imageWrapper {
+  transform: scale(1.1);
+}
+.image {
+  font-size: 4rem; /* 64px */
+}
+
+.content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.seller {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.name {
+  font-weight: 700;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.starFilled {
+  color: var(--star-filled);
+  fill: var(--star-filled);
+}
+.starEmpty {
+  color: var(--border-primary);
+}
+.ratingCount {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-left: 0.5rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+.cartButton {
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cartButton:hover {
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+}
+
+/* Add this to the end of src/components/common/ProductCard.module.css */
+
+.cardLink {
+  text-decoration: none; /* Removes underline from the link */
+  color: inherit; /* Ensures the text color is not blue */
+  display: block; /* Makes the link a block element */
+  height: 100%; /* Ensures the card fills its grid space */
+}
+
+/* ... all other styles ... */
+
+.imageWrapper {
+  background: var(--bg-tertiary); /* Changed from gradient */
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Add this */
+  border-bottom: 1px solid var(--border-secondary); /* Add this */
+}
+
+/* --- ADD THIS NEW STYLE --- */
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image cover the area */
+}
+/* -------------------------- */
+
+.card:hover .imageWrapper {
+  transform: none; /* Disable zoom, as it's on the img now */
+}
+.card:hover .imageWrapper img {
+  transform: scale(1.1); /* Zoom the image itself */
+}
+
+.image {
+  font-size: 4rem;
+  color: var(--text-tertiary); /* Added this */
+}
+
+/* ... rest of your styles ... */

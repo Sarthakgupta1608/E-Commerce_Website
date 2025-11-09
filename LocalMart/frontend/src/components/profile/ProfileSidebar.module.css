@@ -1,0 +1,102 @@
+/* src/components/profile/ProfileSidebar.module.css */
+.sidebar {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  align-self: flex-start;
+  position: sticky;
+  top: 8rem; /* 6rem padding + 2rem buffer */
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 99px;
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.email {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+.navButton:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+.navButton.active {
+  background-color: var(--bg-brand-secondary);
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+.navButton svg {
+  flex-shrink: 0;
+}
+
+.logout {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-secondary);
+  color: #ef4444; /* red-500 */
+}
+.logout:hover {
+  background-color: #fee2e2; /* red-100 */
+  color: #b91c1c; /* red-700 */
+}
+[data-theme="dark"] .logout:hover {
+  background-color: #3f2222;
+  color: #fca5a5;
+}

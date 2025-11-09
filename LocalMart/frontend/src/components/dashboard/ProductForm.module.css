@@ -1,0 +1,158 @@
+/* src/components/dashboard/ProductForm.module.css */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-xl);
+  animation: slideDown 0.4s ease-out;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  padding: 0.5rem;
+  border-radius: 99px;
+  transition: all 0.2s ease;
+}
+.closeButton:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.form {
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* --- NEW IMAGE STYLES --- */
+.imageUploadWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.imagePreview {
+  width: 100px;
+  height: 100px;
+  border-radius: 0.5rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--text-tertiary);
+}
+.imagePreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fileInput {
+  display: none; /* Hide the default ugly input */
+}
+.fileInputLabel {
+  flex-grow: 1;
+  border: 1px dashed var(--border-primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.fileInputLabel:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+/* ------------------------ */
+
+.errorMessage {
+  color: #b91c1c; /* red-700 */
+  background-color: #fee2e2; /* red-100 */
+  border: 1px solid #dc2626; /* red-500 */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+[data-theme="dark"] .errorMessage {
+  background-color: #3f2222;
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-secondary);
+  margin-top: 1rem;
+}
+
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-primary);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.cancelButton:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

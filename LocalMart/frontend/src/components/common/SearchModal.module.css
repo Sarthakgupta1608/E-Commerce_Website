@@ -1,0 +1,89 @@
+/* src/components/common/SearchModal.module.css */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.8); /* gray-900 with opacity */
+  backdrop-filter: blur(8px);
+  z-index: 90;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-xl);
+  animation: slideDown 0.4s ease-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  padding: 0.5rem;
+  border-radius: 99px;
+  transition: all 0.2s ease;
+}
+.closeButton:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--border-primary);
+  padding-bottom: 0.5rem;
+}
+
+.searchIcon {
+  color: var(--text-tertiary);
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+}
+.searchInput::placeholder {
+  color: var(--text-tertiary);
+}
+
+.tip {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* This is a global class we're adding to <body> */
+:global(body.noScroll) {
+  overflow: hidden;
+}

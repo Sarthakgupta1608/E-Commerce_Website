@@ -1,0 +1,79 @@
+/* src/components/checkout/PaymentMethod.module.css */
+.payment {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  border-bottom: 1px solid var(--border-secondary);
+  padding-bottom: 1rem;
+}
+
+.selection {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--border-primary);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.option:hover {
+  border-color: var(--brand-primary-hover);
+}
+.option.active {
+  border-color: var(--brand-primary);
+  background-color: var(--bg-brand-secondary);
+  color: var(--brand-primary);
+  box-shadow: 0 0 0 2px var(--brand-primary);
+}
+.option img {
+  opacity: 0.6;
+}
+.option.active img {
+  opacity: 1;
+}
+[data-theme="dark"] .option img {
+  filter: invert(0.8);
+}
+[data-theme="dark"] .option.active img {
+  filter: none;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.secureNote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+.secureNote svg {
+  color: #16a34a; /* green-600 */
+}

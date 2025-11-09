@@ -1,0 +1,85 @@
+/* src/components/profile/AccountDetails.module.css */
+.details {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.subTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 1.5rem 0 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-secondary);
+}
+
+/* Make the button smaller */
+.details .formStyles.button {
+  align-self: flex-start;
+  width: auto;
+  padding: 0.75rem 1.5rem;
+}
+
+/* ... keep all existing styles ... */
+
+.message {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.errorMessage {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #dc2626;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  grid-column: 1 / -1; /* Make it span both columns */
+}
+[data-theme="dark"] .errorMessage {
+  background-color: #3f2222;
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+.successMessage {
+  color: #166534; /* green-800 */
+  background-color: #dcfce7; /* green-100 */
+  border: 1px solid #22c55e; /* green-500 */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  grid-column: 1 / -1; /* Make it span both columns */
+}
+[data-theme="dark"] .successMessage {
+  background-color: #14532d;
+  color: #bbf7d0;
+  border-color: #4ade80;
+}

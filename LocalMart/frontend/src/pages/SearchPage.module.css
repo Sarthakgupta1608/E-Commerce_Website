@@ -1,0 +1,48 @@
+/* src/pages/SearchPage.module.css */
+.page {
+  padding: 6rem 1rem 2rem;
+  min-height: 80vh;
+}
+@media (min-width: 768px) {
+  .page {
+    padding: 8rem 2rem 2rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.query {
+  color: var(--brand-primary);
+}
+
+.count {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.noResults {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* ... all your other styles ... */
+
+.loading {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 3rem 0;
+}

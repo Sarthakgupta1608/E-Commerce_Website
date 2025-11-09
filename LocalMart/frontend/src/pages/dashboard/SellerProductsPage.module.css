@@ -1,0 +1,175 @@
+/* src/pages/dashboard/SellerProductsPage.module.css */
+.page {
+  animation: fadeIn 0.5s ease-out;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+.primaryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(to right, var(--brand-gradient-start), var(--brand-gradient-end));
+  color: var(--text-on-brand);
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.primaryButton:hover {
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+.toolbar {
+  margin-bottom: 1.5rem;
+}
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.75rem;
+  padding: 0 0.75rem;
+  max-width: 400px;
+}
+.searchIcon {
+  color: var(--text-tertiary);
+}
+.searchBox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.tableWrapper {
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-secondary);
+  overflow: hidden;
+}
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.productTable th, .productTable td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-secondary);
+  vertical-align: middle;
+}
+.productTable th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+.productTable td {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.productTable tbody tr:last-child td {
+  border-bottom: none;
+}
+.tableMessage {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.status {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  text-align: center;
+}
+.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+[data-theme="dark"] .active { background-color: #14532d; color: #bbf7d0; }
+.outofstock {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+[data-theme="dark"] .outofstock { background-color: #7f1d1d; color: #fecaca; }
+.outOfStock { color: #dc2626; }
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.productImage {
+  width: 45px;
+  height: 45px;
+  border-radius: 0.5rem;
+  background-color: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-secondary);
+}
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+.iconButton {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.iconButton:hover {
+  background-color: var(--border-secondary);
+  color: var(--text-primary);
+}
+.iconButton.danger:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.errorMessage {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #dc2626;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+[data-theme="dark"] .errorMessage {
+  background-color: #3f2222;
+  color: #fca5a5;
+  border-color: #ef4444;
+}
