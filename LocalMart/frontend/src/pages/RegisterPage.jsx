@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import axios
 import AuthLayout from '../components/layout/AuthLayout';
-import formStyles from '../styles/forms.module.css';
-import styles from './RegisterPage.module.css';
 
 // Define our backend API URL
 const API_URL = 'http://localhost:8080/api/auth';
@@ -83,19 +81,19 @@ export default function RegisterPage() {
   return (
     <AuthLayout title="Create Your Account">
       {/* --- Updated form tag --- */}
-      <form className={formStyles.form} onSubmit={handleSubmit}>
+      <form className="space-y-6" onSubmit={handleSubmit}>
         
-        <div className={styles.toggle}>
+        <div className="flex justify-center rounded-md shadow-sm">
           <button 
             type="button"
-            className={`${styles.toggleButton} ${accountType === 'customer' ? styles.active : ''}`}
+            className={`px-4 py-2 text-sm font-medium border rounded-l-md ${accountType === 'customer' ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-gray-700 border-gray-300'}`}
             onClick={() => setAccountType('customer')}
           >
             I'm a Customer
           </button>
           <button 
             type="button"
-            className={`${styles.toggleButton} ${accountType === 'seller' ? styles.active : ''}`}
+            className={`px-4 py-2 text-sm font-medium border rounded-r-md ${accountType === 'seller' ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-gray-700 border-gray-300'}`}
             onClick={() => setAccountType('seller')}
           >
             I'm a Seller
@@ -103,12 +101,12 @@ export default function RegisterPage() {
         </div>
 
         {accountType === 'seller' && (
-          <div className={formStyles.formGroup}>
-            <label htmlFor="storeName" className={formStyles.label}>Store Name</label>
+          <div className="space-y-2">
+            <label htmlFor="storeName" className="text-sm font-medium text-gray-700">Store Name</label>
             <input 
               type="text" 
               id="storeName" 
-              className={formStyles.input} 
+              className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="e.g. Artisan Corner" 
               value={formData.storeName}
               onChange={handleChange}
@@ -117,14 +115,14 @@ export default function RegisterPage() {
           </div>
         )}
 
-        <div className={formStyles.formGroup}>
-          <label htmlFor="ownerName" className={formStyles.label}>
+        <div className="space-y-2">
+          <label htmlFor="ownerName" className="text-sm font-medium text-gray-700">
             {accountType === 'customer' ? 'Full Name' : 'Owner Name'}
           </label>
           <input 
             type="text" 
             id="ownerName" // Changed from 'name' to 'ownerName' to match state
-            className={formStyles.input} 
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="e.g. Jayesh Saini"
             value={formData.ownerName}
             onChange={handleChange} 
@@ -132,12 +130,12 @@ export default function RegisterPage() {
           />
         </div>
         
-        <div className={formStyles.formGroup}>
-          <label htmlFor="email" className={formStyles.label}>Email</label>
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
           <input 
             type="email" 
             id="email" 
-            className={formStyles.input} 
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="you@example.com" 
             value={formData.email}
             onChange={handleChange}
@@ -145,12 +143,12 @@ export default function RegisterPage() {
           />
         </div>
         
-        <div className={formStyles.formGroup}>
-          <label htmlFor="password" className={formStyles.label}>Password</label>
+        <div className="space-y-2">
+          <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
           <input 
             type="password" 
             id="password" 
-            className={formStyles.input} 
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Minimum 8 characters" 
             value={formData.password}
             onChange={handleChange}
@@ -159,16 +157,22 @@ export default function RegisterPage() {
         </div>
 
         {/* --- Display Success or Error Messages --- */}
-        {success && <div className={styles.messageSuccess}>{success}</div>}
-        {error && <div className={styles.messageError}>{error}</div>}
+        {success && <div className="text-green-600 text-center text-sm">{success}</div>}
+        {error && <div className="text-red-600 text-center text-sm">{error}</div>}
         
-        <button type="submit" className={formStyles.button} disabled={loading}>
+        <button
+          type="submit"
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+          disabled={loading}
+        >
           {loading ? 'Creating Account...' : 'Create Account'}
         </button>
         
-        <p className={formStyles.altAction}>
+        <p className="text-center text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to="/login">Sign in</Link>
+          <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+            Sign in
+          </Link>
         </p>
       </form>
     </AuthLayout>

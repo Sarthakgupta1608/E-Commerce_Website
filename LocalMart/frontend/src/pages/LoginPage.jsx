@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AuthLayout from '../components/layout/AuthLayout';
-import formStyles from '../styles/forms.module.css';
 import { useAuth } from '../context/AuthContext';
 
 const API_URL = 'http://localhost:8080/api/auth';
@@ -44,13 +43,13 @@ export default function LoginPage() {
   // ... (return JSX is unchanged) ...
   return (
     <AuthLayout title="Welcome Back">
-      <form className={formStyles.form} onSubmit={handleSubmit}>
-        <div className={formStyles.formGroup}>
-          <label htmlFor="email" className={formStyles.label}>Email</label>
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
           <input 
             type="email" 
             id="email" 
-            className={formStyles.input} 
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="you@example.com" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -58,12 +57,12 @@ export default function LoginPage() {
           />
         </div>
         
-        <div className={formStyles.formGroup}>
-          <label htmlFor="password" className={formStyles.label}>Password</label>
+        <div className="space-y-2">
+          <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
           <input 
             type="password" 
             id="password" 
-            className={formStyles.input} 
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="••••••••" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -71,15 +70,21 @@ export default function LoginPage() {
           />
         </div>
 
-        {error && <div style={{color: 'red', textAlign: 'center'}}>{error}</div>}
+        {error && <div className="text-red-600 text-center text-sm">{error}</div>}
         
-        <button type="submit" className={formStyles.button} disabled={loading}>
+        <button
+          type="submit"
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+          disabled={loading}
+        >
           {loading ? 'Signing In...' : 'Sign In'}
         </button>
         
-        <p className={formStyles.altAction}>
+        <p className="text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/register">Sign up</Link>
+          <Link to="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
+            Sign up
+          </Link>
         </p>
       </form>
     </AuthLayout>
