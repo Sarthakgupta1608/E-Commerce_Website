@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
-import formStyles from '../../styles/forms.module.css';
-import styles from './AccountDetails.module.css';
 
 const API_URL = 'http://localhost:8080/api/customer/details';
 
@@ -86,67 +84,74 @@ export default function AccountDetails() {
   };
 
   if (loading) {
-    return <div className={styles.message}>Loading your details...</div>;
+    return <div className="text-center p-8">Loading your details...</div>;
   }
 
   return (
-    <div className={styles.details}>
-      <h2 className={styles.title}>Account Details</h2>
+    <div className="bg-white p-6 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold mb-6">Account Details</h2>
       
-      <form className={formStyles.form} onSubmit={handleSubmit}>
+      <form className="space-y-6" onSubmit={handleSubmit}>
         
-        {error && <div className={styles.errorMessage}>{error}</div>}
-        {success && <div className={styles.successMessage}>{success}</div>}
+        {error && <div className="text-red-600 text-center text-sm mb-4">{error}</div>}
+        {success && <div className="text-green-600 text-center text-sm mb-4">{success}</div>}
         
-        <div className={styles.grid}>
-          <div className={formStyles.formGroup}>
-            <label htmlFor="name" className={formStyles.label}>Full Name</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name</label>
             <input 
               type="text" 
               id="name" 
-              className={formStyles.input} 
+              className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               value={formData.name}
               onChange={handleChange}
             />
           </div>
-          <div className={formStyles.formGroup}>
-            <label htmlFor="email" className={formStyles.label}>Email Address</label>
+          <div className="space-y-2">
+            <label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address</label>
             <input 
               type="email" 
               id="email" 
-              className={formStyles.input} 
+              className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               value={formData.email}
               onChange={handleChange}
             />
           </div>
         </div>
         
-        <div className={formStyles.formGroup}>
-          <label htmlFor="shippingAddress" className={formStyles.label}>Default Shipping Address</label>
+        <div className="space-y-2">
+          <label htmlFor="shippingAddress" className="text-sm font-medium text-gray-700">Default Shipping Address</label>
           <input 
             type="text" 
             id="shippingAddress" 
-            className={formStyles.input} 
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             value={formData.shippingAddress || ''}
             placeholder="e.g. 123 Main Street"
             onChange={handleChange}
           />
         </div>
         
-        <h3 className={styles.subTitle}>Change Password (Not Implemented)</h3>
-        
-        <div className={formStyles.formGroup}>
-          <label htmlFor="oldPassword" className={formStyles.label}>Current Password</label>
-          <input type="password" id="oldPassword" className={formStyles.input} placeholder="••••••••" disabled />
-        </div>
-        <div className={formStyles.formGroup}>
-          <label htmlFor="newPassword" className={formStyles.label}>New Password</label>
-          <input type="password" id="newPassword" className={formStyles.input} placeholder="Minimum 8 characters" disabled />
+        <div className="border-t pt-6">
+            <h3 className="text-lg font-semibold text-gray-600">Change Password (Not Implemented)</h3>
+            <div className="space-y-2 mt-4">
+                <label htmlFor="oldPassword" className="text-sm font-medium text-gray-700">Current Password</label>
+                <input type="password" id="oldPassword" className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100" placeholder="••••••••" disabled />
+            </div>
+            <div className="space-y-2 mt-4">
+                <label htmlFor="newPassword" className="text-sm font-medium text-gray-700">New Password</label>
+                <input type="password" id="newPassword" className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100" placeholder="Minimum 8 characters" disabled />
+            </div>
         </div>
 
-        <button type="submit" className={formStyles.button} disabled={saving}>
-          {saving ? 'Saving...' : 'Save Changes'}
-        </button>
+        <div className="flex justify-end">
+            <button
+              type="submit"
+              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50"
+              disabled={saving}
+            >
+              {saving ? 'Saving...' : 'Save Changes'}
+            </button>
+        </div>
       </form>
     </div>
   );
